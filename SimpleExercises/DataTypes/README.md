@@ -11,6 +11,7 @@ Things I learned:
     "editor.formatOnSave": true,
   },
 ```
+- Comment blocks seem to be prefered as ```/// comment```
 - See inline comments in main.rs
 
 Commands I learned / used:

@@ -104,6 +104,21 @@ fn string_vs_strslices() {
     println!("{} {} {} {} {}", a, a2, b, c, d);
 }
 
+fn shadowing() {
+    /* Shadowing is different than mut */
+    let x: i32 = 5;
+    println!("before shadowing {}", x);
+    let x: i32 = x + 1;
+    println!("after shadowing {}", x);
+
+    {
+        //Innerblock
+        let x: i32 = x * 2; //5+1 * 2
+        println!("after shadowing {}", x);
+    }
+}
+
+/// This is a comment block in Rust
 fn main() {
     test_ints();
     test_floats();
@@ -114,4 +129,5 @@ fn main() {
     tuples();
     slices();
     string_vs_strslices();
+    shadowing();
 }
