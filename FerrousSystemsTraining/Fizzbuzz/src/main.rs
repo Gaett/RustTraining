@@ -1,4 +1,4 @@
-fn fizzbuzz(i: i32) -> String {
+fn fizzbuzz(i: u32) -> String {
     let div_by_3 = i % 3 == 0;
     let div_by_5 = i % 5 == 0;
 
@@ -13,21 +13,21 @@ fn fizzbuzz(i: i32) -> String {
     }
 }
 
-// I would have liked to do the matched version (I tried but failed to do it), still here's the correction's version
-// fn fizzbuzz_match(i: u32) -> String {
-//     let remainders = (i % 3, i % 5);
+fn fizzbuzz_match(i: u32) -> String {
+    let remainders = (i % 3, i % 5);
 
-//     match remainders {
-//         (0, 0) => format!("FizzBuzz"),
-//         (0, _) => format!("Fizz"),
-//         (_, 0) => format!("Buzz"),
-//         (_, _) => format!("{}", i),
-//     }
-// }
+    match remainders {
+        (0, 0) => String::from("FizzBuzz"),
+        (0, _) => String::from("Fizz"),
+        (_, 0) => String::from("Buzz"),
+        (_, _) => i.to_string(),
+    }
+}
 
 fn loop_on_fizzbuzz() {
     for j in 0..=100 {
         println!("{} : {}", j, fizzbuzz(j));
+        println!("{} : {}", j, fizzbuzz_match(j));
     }
 }
 
